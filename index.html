@@ -32,6 +32,19 @@
     @media (min-width: 640px) {
       .btn { min-height: 48px; font-size: 1rem; }
     }
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 24px rgba(30,41,59,.08);
+    }
+    .divider {
+      width: 3rem;
+      height: 2px;
+      background: #e7e5e0;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body class="bg-warm text-dark font-sans antialiased flex items-center justify-center px-8 py-12">
@@ -39,9 +52,11 @@
   <div class="card text-center">
 
     <!-- LOGO + NAME -->
-    <div class="mb-14">
+    <div class="mb-12">
+      <img src="v3-2.png" alt="Ask Innovation logo" class="logo-img mx-auto mb-5" />
       <h1 class="text-3xl sm:text-2xl font-semibold tracking-tight">Ask Innovation</h1>
-      <p class="text-lg sm:text-base text-muted mt-3">AI-Powered Customer Service</p>
+      <p class="text-base text-muted mt-2">AI-Powered Customer Service</p>
+      <div class="divider mt-6"></div>
     </div>
 
     <!-- BUTTONS -->
