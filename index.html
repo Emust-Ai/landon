@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ask Innovation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,20 +14,22 @@
         extend: {
           fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
           colors: {
-            surface: '#f5f5f0',
-            muted: '#78716c',
-            border: '#e7e5e0',
-            dark: '#1e293b',
-            warm: '#faf9f6',
+            surface: '#f5f0fa',
+            muted: '#7c6f8a',
+            border: '#d8cfe5',
+            dark: '#6B3FA0',
+            warm: '#faf8fc',
+            orange: '#F58220',
+            green: '#8CC63F',
           },
         },
       },
     }
   </script>
   <style>
-    ::selection { background: #1e293b; color: #faf9f6; }
+    ::selection { background: #6B3FA0; color: #fff; }
     body { min-height: 100dvh; }
-    .card { width: 100%; max-width: 28rem; }
+    .card { width: 100%; min-width: 0; max-width: 28rem; }
     .btn { min-height: 56px; font-size: 1.125rem; }
     @media (min-width: 640px) {
       .btn { min-height: 48px; font-size: 1rem; }
@@ -37,80 +39,150 @@
       height: 60px;
       object-fit: contain;
       border-radius: 1rem;
-      box-shadow: 0 3px 18px rgba(30,41,59,.07);
+      box-shadow: 0 3px 18px rgba(107,63,160,.12);
+    }
+    .event-link {
+      display: block;
+      border-radius: 1rem;
+      transition: transform 200ms ease, box-shadow 200ms ease;
     }
     .event-flyer {
+      display: block;
       width: 100%;
-      max-width: 100%;
       height: auto;
-      object-fit: cover;
       border-radius: 1rem;
-      box-shadow: 0 4px 24px rgba(30,41,59,.12);
+      border: 1px solid rgba(107,63,160,.12);
+      box-shadow: 0 4px 24px rgba(107,63,160,.14);
     }
     .divider {
       width: 3rem;
       height: 2px;
-      background: #e7e5e0;
+      background: #d8cfe5;
       margin: 0 auto;
+    }
+    .btn,
+    .btn-detail {
+      transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+    }
+    .btn-primary:hover {
+      background: #5a3589;
+      box-shadow: 0 8px 20px rgba(107,63,160,.2);
+      transform: translateY(-1px);
+    }
+    .btn-outline:hover {
+      background: #6B3FA0;
+      border-color: #6B3FA0;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .btn-outline:hover .btn-detail { color: rgba(255,255,255,.75); }
+    .event-link:hover {
+      box-shadow: 0 10px 30px rgba(107,63,160,.18);
+      transform: translateY(-2px);
+    }
+    .btn:focus-visible,
+    .event-link:focus-visible {
+      outline: 2px solid #6B3FA0;
+      outline-offset: 4px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn,
+      .btn-detail,
+      .event-link { transition: none; }
+      .btn-primary:hover,
+      .btn-outline:hover,
+      .event-link:hover { transform: none; }
     }
   </style>
 </head>
-<body class="bg-warm text-dark font-sans antialiased flex items-start justify-center px-8 pt-16 pb-12">
+<body class="flex items-start justify-center bg-warm px-5 pb-24 pt-10 font-sans text-dark antialiased sm:px-8 sm:pb-16 sm:pt-16">
 
   <div class="card text-center">
 
     <!-- LOGO + NAME -->
     <div class="mb-8">
-      <img src="v3-2.png" alt="Ask Innovation Logo" class="logo-img mx-auto mb-4" />
+      <img src="v3-2.png" alt="Ask Innovation logo" width="60" height="60" class="logo-img mx-auto mb-3">
       <h1 class="text-3xl sm:text-2xl font-semibold tracking-tight">Ask Innovation</h1>
       <p class="text-base text-muted mt-1.5">AI-Powered Customer Service</p>
       <div class="divider mt-4"></div>
     </div>
 
-  
-
-    
-
-    <!-- BUTTONS -->
-    <div class="space-y-3.5">
-
-      <!-- Contact us -->
-      <a href="tel:+33159134400" class="btn flex items-center justify-center gap-3 w-full bg-dark text-white font-medium py-4 rounded-full hover:bg-neutral-800 transition-colors">
-        <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-        Call us
+    <!-- EVENT FLYER -->
+    <div class="mb-8">
+      <a href="https://intercharge-network-conference.com/" target="_blank" rel="noopener noreferrer" class="event-link" aria-label="Visit the ICNC26 conference website">
+        <img src="im1.jpg" alt="ICNC26, 1-3 September 2026 at Tempelhof Airport, Berlin" width="1500" height="582" class="event-flyer">
       </a>
+    </div>
 
-      <!-- Telegram -->
-      <a href="https://t.me/Ask_Innovation_bot" target="_blank" class="btn flex items-center justify-center gap-3 w-full border border-dark text-dark font-medium py-4 rounded-full hover:bg-dark hover:text-white transition-all duration-200">
-        <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        Telegram
+    <!-- LIVE AI DEMOS -->
+    <section aria-labelledby="live-demos-title">
+      <div class="mb-5">
+        <span class="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-muted">
+          <span class="h-2 w-2 rounded-full bg-green" aria-hidden="true"></span>
+          Live demos available now
+        </span>
+        <h2 id="live-demos-title" class="mt-3 text-xl font-semibold text-dark">Try our live AI demos</h2>
+        <p class="mt-2 text-sm leading-relaxed text-muted">These are working demos, not just contact links. Call or message the assistant to see it in action.</p>
+      </div>
+
+      <div class="space-y-3.5">
+
+        <!-- Voice demo -->
+        <a href="tel:+33159134400" aria-label="Call the live Ask Innovation AI assistant at +33&nbsp;1&nbsp;59&nbsp;13&nbsp;44&nbsp;00" class="btn btn-primary flex w-full items-center justify-start gap-3 rounded-full bg-dark px-5 py-4 font-medium text-white shadow-md shadow-dark/20">
+          <svg class="h-6 w-6 shrink-0 sm:h-5 sm:w-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          <span class="min-w-0 text-left leading-tight">
+            <span class="block text-sm sm:text-base">Call&nbsp;the&nbsp;live&nbsp;AI&nbsp;assistant</span>
+            <span class="mt-1 block text-xs font-normal text-white/75">Try&nbsp;the&nbsp;working&nbsp;voice&nbsp;demo</span>
+          </span>
+        </a>
+
+      <!-- Telegram demo -->
+      <a href="https://t.me/Ask_Innovation_bot" target="_blank" rel="noopener noreferrer" class="btn btn-outline flex w-full items-center justify-start gap-3 rounded-full border border-dark px-5 py-4 font-medium text-dark">
+        <svg class="h-6 w-6 shrink-0 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        <span class="min-w-0 text-left leading-tight">
+          <span class="block text-sm sm:text-base">Chat with the live AI on Telegram</span>
+          <span class="btn-detail mt-1 block text-xs font-normal text-muted">Open the working Telegram demo</span>
+        </span>
       </a>
 
       <!-- WhatsApp -->
-      <a href="https://wa.me/33664295186" target="_blank" class="btn flex items-center justify-center gap-3 w-full border border-dark text-dark font-medium py-4 rounded-full hover:bg-dark hover:text-white transition-all duration-200">
-        <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-        WhatsApp
+      <a href="https://wa.me/33664295186" target="_blank" rel="noopener noreferrer" class="btn btn-outline flex w-full items-center justify-start gap-3 rounded-full border border-dark px-5 py-4 font-medium text-dark">
+        <svg class="h-6 w-6 shrink-0 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <span class="min-w-0 text-left leading-tight">
+          <span class="block text-sm sm:text-base">Chat with us on WhatsApp</span>
+          <span class="btn-detail mt-1 block text-xs font-normal text-muted">Reach the Ask Innovation team</span>
+        </span>
       </a>
 
       <!-- Website -->
-      <a href="https://www.ask-innovation.com/" target="_blank" class="btn flex items-center justify-center gap-3 w-full border border-dark text-dark font-medium py-4 rounded-full hover:bg-dark hover:text-white transition-all duration-200">
-        <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
-        Visit our website
+      <a href="https://www.ask-innovation.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline flex w-full items-center justify-start gap-3 rounded-full border border-dark px-5 py-4 font-medium text-dark">
+        <svg class="h-6 w-6 shrink-0 sm:h-5 sm:w-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+        <span class="min-w-0 text-left leading-tight">
+          <span class="block text-sm sm:text-base">Visit our website</span>
+          <span class="btn-detail mt-1 block text-xs font-normal text-muted">Explore Ask Innovation</span>
+        </span>
       </a>
 
       <!-- Book a meeting -->
-      <a href="https://outlook.office.com/book/AskInnovation@ask-innovation.com/?ismsaljsauthenabled" target="_blank" class="btn flex items-center justify-center gap-3 w-full border border-border text-dark font-medium py-4 rounded-full hover:border-dark transition-colors">
-        <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
-        Book a meeting
+      <a href="https://outlook.office.com/book/AskInnovation@ask-innovation.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer" class="btn btn-outline flex w-full items-center justify-start gap-3 rounded-full border border-dark px-5 py-4 font-medium text-dark">
+        <svg class="h-6 w-6 shrink-0 sm:h-5 sm:w-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+        <span class="min-w-0 text-left leading-tight">
+          <span class="block text-sm sm:text-base">Book a meeting</span>
+          <span class="btn-detail mt-1 block text-xs font-normal text-muted">Choose a convenient time</span>
+        </span>
       </a>
 
       <!-- Subscriptions -->
-      <a href="https://my.ask-innovation.ovh/" target="_blank" class="btn flex items-center justify-center gap-3 w-full border border-border text-dark font-medium py-4 rounded-full hover:border-dark transition-colors">
-        <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z"/></svg>
-        Subscriptions
+      <a href="https://my.ask-innovation.ovh/" target="_blank" rel="noopener noreferrer" class="btn btn-outline flex w-full items-center justify-start gap-3 rounded-full border border-dark px-5 py-4 font-medium text-dark">
+        <svg class="h-6 w-6 shrink-0 sm:h-5 sm:w-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z"/></svg>
+        <span class="min-w-0 text-left leading-tight">
+          <span class="block text-sm sm:text-base">Subscriptions</span>
+          <span class="btn-detail mt-1 block text-xs font-normal text-muted">Manage your account</span>
+        </span>
       </a>
 
-    </div>
+      </div>
+    </section>
 
   </div>
 
